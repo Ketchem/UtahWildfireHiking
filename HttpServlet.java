@@ -98,15 +98,11 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         if (user != null) {user = "'" + user + "'";}
 
 
-        //from summer semester example
-//		sql = "insert into landmarks (name, type, geom," +
-//				" message) values (" + landmarkName + "," + landmarkType
-//				+ ", ST_GeomFromText('POINT(" + lon + " " + lat + ")', 4326)" + "," +
-//				message + ")";
 
 
 
-        //id | name | type | lat | long | user_created | user_saved | notes
+
+        //sql statement to add to db
         sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, user)"
                 + "values (" + trailID + "," + date_added + "," + active  + "," + rating   + "," + user + ")";
 
@@ -121,9 +117,6 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         System.out.println("Success! Review created.");
 
         System.out.println(sql);
-
-
-
 
         // response that the report submission is successful
         JSONObject data = new JSONObject();
@@ -143,28 +136,19 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
             response) throws JSONException, SQLException, IOException {
         JSONArray list = new JSONArray();
         DBUtility dbutil = new DBUtility();
-        String sql = "";
-        //get the difficulty
-        //String difficulty = request.getParameter("difficulty");
+        String sql = "select * from trail_review";
 
-        //artifact from old verison
-//        if (!type.equals("none")){
-//            //if request is to show all then query all of them
-//            if (type.equals("all")) {
-//                sql = "select * from trailheads";
-//            }
-//            else { //otherwise select where type equals the clicked button
-//                sql = "select * from trailheads where difficulty ='" + difficulty+"'";
-//            }
 
             ResultSet res = dbutil.queryDB(sql);
             while (res.next()) {
                 // this is where we list the data we want to get back
                 HashMap<String, String> m = new HashMap<String,String>();
-                m.put("trailName", res.getString("trailName"));
                 m.put("trailID", res.getString("trailID"));
-                m.put("longitude", res.getString("long"));
-                m.put("latitude", res.getString("lat"));
+
+                //m.put("trailName", res.getString("trailName"));
+
+                //m.put("longitude", res.getString("long"));
+                //m.put("latitude", res.getString("lat"));
 
                 m.put("comments", res.getString("comments"));
                 m.put("date", res.getString("date"));
@@ -175,8 +159,9 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
             }
 
             response.getWriter().write(list.toString());
-        }
-    } // end of queryLandmarks
+
+    }
+    // end of queryLandmarks
 
     public void main() throws JSONException {
     }
