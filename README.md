@@ -1,2 +1,2 @@
 # UtahWildfireHiking
-Utah Wildfire Hiking Android Application
+Utah Wildfire Hiking Web Application
