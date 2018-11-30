@@ -174,6 +174,12 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         //TODO
     }
 
+    private void queryHistoricWildfire(HttpServletRequest request, HttpServletResponse
+            response) throws JSONException, SQLException, IOException {
+
+        //TODO
+    }
+
     public void main() throws JSONException {
     }
 }
