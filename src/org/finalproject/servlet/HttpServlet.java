@@ -98,10 +98,6 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         if (user != null) {user = "'" + user + "'";}
 
 
-
-
-
-
         //sql statement to add to db
         sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, user)"
                 + "values (" + trailID + "," + date_added + "," + active  + "," + rating   + "," + user + ")";
@@ -162,6 +158,21 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
     }
     // end of queryLandmarks
+
+    // Method to allow the user to add a new trail head not on the map
+    private void addTrailHead(HttpServletRequest request, HttpServletResponse
+        response) throws JSONException, SQLException, IOException {
+
+        // TODO
+
+    }
+
+    // Method to allow the user to query Trails based on criteria
+    private void queryTrails(HttpServletRequest request, HttpServletResponse
+            response) throws JSONException, SQLException, IOException {
+
+        //TODO
+    }
 
     public void main() throws JSONException {
     }
