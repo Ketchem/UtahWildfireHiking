@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class DBUtility {
     private static final String Driver = "org.postgresql.Driver";
-    private static final String ConnUrl = "jdbc:postgresql://localhost:5432/Trails";
+    private static final String ConnUrl = "jdbc:postgresql://localhost:5432/utahtrl";
     private static final String Username = "postgres";
-    private static final String Password = "password";
+    private static final String Password = "admin";
 
     // This is a constructor
     public DBUtility() {
