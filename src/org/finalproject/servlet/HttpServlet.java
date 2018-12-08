@@ -3,7 +3,6 @@ package org.finalproject.servlet;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-//import org.finalproject.servlet.DBUtility;
+
 
 /** Servlet implementation class HttpServlet*/
 
@@ -56,7 +55,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         // query reports
         if (tab_id.equals("1")) {
             try {
-                queryReviews(request, response);
+                queryTrails(request, response);
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -127,7 +126,6 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
     } //end of create
 
 
-
     private void queryReviews(HttpServletRequest request, HttpServletResponse
             response) throws JSONException, SQLException, IOException {
         JSONArray list = new JSONArray();
@@ -157,21 +155,38 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         response.getWriter().write(list.toString());
 
     }
-    // end of queryLandmarks
 
     // Method to allow the user to add a new trail head not on the map
-    private void addTrailHead(HttpServletRequest request, HttpServletResponse
-        response) throws JSONException, SQLException, IOException {
-
-        // TODO
-
-    }
+    //let's hold off on this till we know the rest works
+//    private void addTrailHead(HttpServletRequest request, HttpServletResponse
+//            response) throws JSONException, SQLException, IOException {
+//
+//
+//
+//    }
 
     // Method to allow the user to query Trails based on criteria
     private void queryTrails(HttpServletRequest request, HttpServletResponse
             response) throws JSONException, SQLException, IOException {
 
-        //TODO
+        JSONArray list = new JSONArray();
+        DBUtility dbutil = new DBUtility();
+        String sql = "select * from trailheads";
+
+        ResultSet res = dbutil.queryDB(sql);
+        while (res.next()) {
+            // this is where we list the data we want to get back
+            HashMap<String, String> m = new HashMap<String, String>();
+            m.put("trailhead_ID", res.getString("trailhead_ID"));
+
+            m.put("name", res.getString("primaryname"));
+            m.put("comments", res.getString("comments"));
+            m.put("longitude", res.getString("lon"));
+            m.put("latitude", res.getString("lat"));
+            list.put(m);
+        }
+        response.getWriter().write(list.toString());
+
     }
 
     private void queryHistoricWildfire(HttpServletRequest request, HttpServletResponse
