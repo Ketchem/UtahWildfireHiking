@@ -3,6 +3,7 @@ package org.finalproject.servlet;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -73,12 +74,12 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
         // create new trail review
 
-        // int review_id = 0;
-        // String trailName = request.getParameter("Trail Name");
+        //review_id = 0;
+        //String trailName = request.getParameter("Trail Name");
 
-        String trailID = request.getParameter("trailID");
-        // String lon = request.getParameter("longitude");
-        //String lat = request.getParameter("latitude");
+        String trailID = request.getParameter("trail_id");
+        String lon = request.getParameter("longitude");
+        String lat = request.getParameter("latitude");
 
         String comments = request.getParameter("comments");
         String date_added = request.getParameter("date_added"); //Date?
@@ -94,12 +95,14 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         if (date_added != null) {date_added = "'" + date_added + "'";}
         if (active != null) {active = "'" + active + "'";}
         if (rating != null) {rating = "'" + rating + "'";}
+        if (lon != null) {lon = "'" + lon + "'";}
+        if (lat != null) {lat = "'" + lat + "'";}
         if (user != null) {user = "'" + user + "'";}
 
 
         //sql statement to add to db
-        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, user)"
-                + "values (" + trailID + "," + date_added + "," + active  + "," + rating   + "," + user + ")";
+        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude, user)"
+                + "values (" + trailID + "," + date_added + "," + active  + "," + rating + "," + comments + "," + lon + "," + lat + "," + user + ")";
 
 
         dbutil.modifyDB(sql);
@@ -107,7 +110,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         // record report_id
         ResultSet res_1 = dbutil. queryDB("select last_value from trail_review_id_seq");
         res_1.next();
-        // review_id = res_1.getInt(1);
+        //review_id = res_1.getInt(1);
 
         System.out.println("Success! Review created.");
 
