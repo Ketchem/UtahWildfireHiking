@@ -124,6 +124,32 @@
         <div id="map-canvas" class="col-xs-9"></div>
     </div>
 </div>
+    
+    <script>
+    window.onload = tests();
+    function tests() {
+        test();
+    }
+
+    function test() {
+        $.ajax({
+            url: 'HttpServlet',
+            type: 'POST',
+            data: { "tab_id": "0", "longitude": "26.89",
+                "latitude": "35.12", "comments": "TEST1", "date_added": "May 1st, 2018",
+                "rating": "1"},
+            success: function(data){
+                $.each(data, function(i, name) {
+                    alert("key: " + i + ", value: " + name);
+                });
+            },
+            error: function(xhr, status, error) {
+                alert("An AJAX error occured: " + status + "\nError: " + error);
+            }
+        });
+    }
+
+</script>
 
 
 <script src ="js/loadform.js"></script>
