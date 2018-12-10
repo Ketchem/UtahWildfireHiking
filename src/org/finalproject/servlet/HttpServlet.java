@@ -56,7 +56,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         // query reports
         if (tab_id.equals("1")) {
             try {
-                queryTrails(request, response);
+                queryReviews(request, response);
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -77,39 +77,39 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         //review_id = 0;
         //String trailName = request.getParameter("Trail Name");
 
-        String trailID = request.getParameter("trail_id");
-        String lon = request.getParameter("longitude");
-        String lat = request.getParameter("latitude");
+        String trail_id = request.getParameter("trail_id");
+        String longitude = request.getParameter("longitude");
+        String latitude = request.getParameter("latitude");
 
         String comments = request.getParameter("comments");
         String date_added = request.getParameter("date_added"); //Date?
         String active = request.getParameter("active"); //Boolean?
         String rating = request.getParameter("rating");
-        String user = request.getParameter("user");
+        //String user = request.getParameter("user");
 
 
 
         //if (trailName != null) {trailName = "'" + trailName + "'";}
-        if (trailID != null) {trailID = "'" + trailID + "'";}
+        if (trail_id != null) {trail_id = "'" + trail_id + "'";}
         if (comments != null) {comments = "'" + comments + "'";}
         if (date_added != null) {date_added = "'" + date_added + "'";}
         if (active != null) {active = "'" + active + "'";}
         if (rating != null) {rating = "'" + rating + "'";}
-        if (lon != null) {lon = "'" + lon + "'";}
-        if (lat != null) {lat = "'" + lat + "'";}
-        if (user != null) {user = "'" + user + "'";}
+        if (longitude != null) {longitude = "'" + longitude + "'";}
+        if (latitude != null) {latitude = "'" + latitude + "'";}
+       // if (user != null) {user = "'" + user + "'";}
 
 
         //sql statement to add to db
-        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude, user)"
-                + "values (" + trailID + "," + date_added + "," + active  + "," + rating + "," + comments + "," + lon + "," + lat + "," + user + ")";
+        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude) "//, user) "
+                + "values (" + trail_id + "," + date_added + "," + active  + "," + rating + "," + comments + "," + longitude + "," + latitude + ")";//"," + user + ")";
 
 
         dbutil.modifyDB(sql);
 
         // record report_id
-        ResultSet res_1 = dbutil. queryDB("select last_value from trail_review_id_seq");
-        res_1.next();
+        //ResultSet res_1 = dbutil. queryDB("select last_value from trail_review_id_seq");
+        //res_1.next();
         //review_id = res_1.getInt(1);
 
         System.out.println("Success! Review created.");
@@ -140,16 +140,16 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         while (res.next()) {
             // this is where we list the data we want to get back
             HashMap<String, String> m = new HashMap<String,String>();
-            m.put("trailID", res.getString("trailID"));
+            m.put("trail_id", res.getString("trail_id"));
 
             //m.put("trailName", res.getString("trailName"));
 
-            //m.put("longitude", res.getString("long"));
-            //m.put("latitude", res.getString("lat"));
+            m.put("longitude", res.getString("longitude"));
+            m.put("latitude", res.getString("latitude"));
 
             m.put("comments", res.getString("comments"));
-            m.put("date", res.getString("date"));
-            m.put("source", res.getString("source"));
+            m.put("date_added", res.getString("date_added"));
+         
             m.put("active", res.getString("active"));
             m.put("rating", res.getString("rating"));
             list.put(m);
@@ -169,28 +169,28 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 //    }
 
     // Method to allow the user to query Trails based on criteria
-    private void queryTrails(HttpServletRequest request, HttpServletResponse
-            response) throws JSONException, SQLException, IOException {
-
-        JSONArray list = new JSONArray();
-        DBUtility dbutil = new DBUtility();
-        String sql = "select * from trailheads";
-
-        ResultSet res = dbutil.queryDB(sql);
-        while (res.next()) {
-            // this is where we list the data we want to get back
-            HashMap<String, String> m = new HashMap<String, String>();
-            m.put("trailhead_ID", res.getString("trailhead_ID"));
-
-            m.put("name", res.getString("primaryname"));
-            m.put("comments", res.getString("comments"));
-            m.put("longitude", res.getString("lon"));
-            m.put("latitude", res.getString("lat"));
-            list.put(m);
-        }
-        response.getWriter().write(list.toString());
-
-    }
+//    private void queryTrails(HttpServletRequest request, HttpServletResponse
+//            response) throws JSONException, SQLException, IOException {
+//
+//        JSONArray list = new JSONArray();
+//        DBUtility dbutil = new DBUtility();
+//        String sql = "select * from trailheads";
+//
+//        ResultSet res = dbutil.queryDB(sql);
+//        while (res.next()) {
+//            // this is where we list the data we want to get back
+//            HashMap<String, String> m = new HashMap<String, String>();
+//            m.put("trailhead_ID", res.getString("trailhead_ID"));
+//
+//            m.put("name", res.getString("primaryname"));
+//            m.put("comments", res.getString("comments"));
+//            m.put("longitude", res.getString("lon"));
+//            m.put("latitude", res.getString("lat"));
+//            list.put(m);
+//        }
+//        response.getWriter().write(list.toString());
+//
+//    }
 
     private void queryHistoricWildfire(HttpServletRequest request, HttpServletResponse
             response) throws JSONException, SQLException, IOException {
