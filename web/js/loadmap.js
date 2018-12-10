@@ -62,7 +62,8 @@ function mapInitialization(reports) {
 
     });
 
-    map.data.loadGeoJson('SmallTrails.geojson');
+    map.data.loadGeoJson('SLCOTrailheads.json');
+    map.data.loadGeoJson('SLCoTrails.json');
 
 
     map.fitBounds (bounds);
