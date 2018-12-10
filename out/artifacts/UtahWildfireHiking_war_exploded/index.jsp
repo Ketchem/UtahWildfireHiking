@@ -33,12 +33,14 @@
             </ul>
 
             <div class="tab-content">
+
                 <!-- Add Review Panel -->
                 <div class="tab-pane active" id="add_review">
                     <form id="add_review_form">
                         <h2>Add Review</h2>
-                        <div><label>Name:&nbsp</label><input placeholder="Your name" name="user"></div>
-
+                        <div><label>Zoom to Location:</label>
+                            <input id="autocomplete" placeholder="Location"></div>
+                        <div><label>Name:&nbsp</label><input placeholder="Trail Name" name="trail_name"></div>
                         <div><label>Date Hiked:&nbsp</label><input placeholder="Date mm/dd/yyyy" name="date_added"></div>
                         <div><label>Trail ID(Required):</label><input placeholder="Trail ID" name="trail_id"></div>
                         <div>
@@ -52,9 +54,10 @@
                             <label><input type="radio" name="rating" value="4">&nbsp4</label>
                             <label><input type="radio" name="rating" value="5">&nbsp5</label>
                         </div>
-
-                        <div><label>Location:</label>
-                            <input id="autocomplete" placeholder="Address" >
+                        <div>
+                        <label>Click Map or enter</label><div><label> Latitude:</label>
+                        <input type="text" id='lat' name="latitude"></div>
+                        <div><label>Longitude:</label><input type="text" id='lon' name="longitude"></div>
                         </div>
                         <div><label>Comment:&nbsp</label><input placeholder="Comments" name="comments"></div>
                         <button type="submit" class="btn btn-default" id="report_submit_btn">
@@ -120,10 +123,9 @@
 
         </div>
 
-        <div id="map-canvas" class="col-xs-9"></div>
+        <div id="map-canvas" class="col-xs-8"></div>
     </div>
 </div>
-
 
 <script src ="js/loadform.js"></script>
 <script src ="js/loadmap.js"></script>

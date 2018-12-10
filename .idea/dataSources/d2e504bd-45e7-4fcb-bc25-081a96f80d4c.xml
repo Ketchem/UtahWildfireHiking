@@ -94,8 +94,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-12-08.21:33:38.026</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1320</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-12-10.09:05:29.274</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1321</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -16426,10 +16426,10 @@
       <StateNumber>1314</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="1368" parent="48" name="user">
+    <column id="1368" parent="48" name="trail_name">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>1241</StateNumber>
+      <StateNumber>1321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="1369" parent="48" name="latitude">

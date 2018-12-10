@@ -61,13 +61,32 @@ function mapInitialization(reports) {
 
 
     });
+//click and fill lat and long on form
+    google.maps.event.addListener(map, "click", function(event) {
+        // get lat/lon of click
+        var clickLat = event.latLng.lat();
+        var clickLon = event.latLng.lng();
 
-    map.data.loadGeoJson('SmallTrails.geojson');
+        // show in input box
+        document.getElementById("lat").value = clickLat.toFixed(5);
+        document.getElementById("lon").value = clickLon.toFixed(5);
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(clickLat, clickLon),
+            map: map
+        });
+
+    });
+
+
+    map.data.loadGeoJson('SLCOTrailheads.json');
+    map.data.loadGeoJson('SLCoTrails.json');
 
 
     map.fitBounds (bounds);
 
 }
+
 function initAutocomplete() {
     // Create the autocomplete object
     autocomplete = new google.maps.places.Autocomplete(document
@@ -92,6 +111,9 @@ function onPlaceChanged() {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 }
+
+
+
 
 //Execute our 'initialization' function once the page has loaded.
 google.maps.event.addDomListener(window, 'load', initialization);

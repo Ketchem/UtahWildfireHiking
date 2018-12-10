@@ -75,7 +75,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         // create new trail review
 
         //review_id = 0;
-        //String trailName = request.getParameter("Trail Name");
+        String trailName = request.getParameter("trail_name");
 
         String trail_id = request.getParameter("trail_id");
         String longitude = request.getParameter("longitude");

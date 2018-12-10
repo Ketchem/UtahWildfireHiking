@@ -1,13 +1,11 @@
+
+//populate review table
 function createReview(event) {
     event.preventDefault(); // stop form from submitting normally
 
 
-    var a = $("#add_review_form").serializeArray(),
-        place = autocomplete.getPlace(),
-        lati =  String(place.geometry.location.lat()),
-        longi = String(place.geometry.location.lng());
-
-    a.push({ name: "tab_id", value: "0"}, {name: "latitude", value: lati}, {name: "longitude", value: longi});
+    var a = $("#add_review_form").serializeArray();
+    a.push({ name: "tab_id", value: "0"});
     //check array
     console.log(a);
     a = a.filter(function(item){return item.value != '';});
@@ -29,9 +27,9 @@ function createReview(event) {
     });
 
 }
-
-function queryReviews(e) {
-    e.preventDefault(); // stop form from submitting normally
+//placeholder for query reviews/trails
+function queryReviews(event) {
+    event.preventDefault(); // stop form from submitting normally
 
     var a = $("#query_review_form").serializeArray();
     a.push({ name: "tab_id", value: "1" });
@@ -51,5 +49,5 @@ function queryReviews(e) {
 
 
 
-$("#add_review_form").on("submit",createReview()); $("#report_submit_btn").on("click" ,createReview());
-$("#query_trail_form").on("submit",queryReviews()); $("#query_submit_btn").on("click" ,queryReviews());
+$("#add_review_form").on("submit",createReview); $("#report_submit_btn").on("click" ,createReview);
+$("#query_trail_form").on("submit",queryReviews); $("#query_submit_btn").on("click" ,queryReviews);
