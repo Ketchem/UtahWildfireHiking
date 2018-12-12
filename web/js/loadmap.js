@@ -84,6 +84,11 @@ function mapInitialization(reports) {
     map.data.loadGeoJson('SLCOTrailheads.json');
     map.data.loadGeoJson('SLCoTrails.json');
 
+    map.data.setStyle({
+        strokeColor: 'red',
+        icon: 'img/damage.png',
+        scaledSize: (15, 15)
+    });
 
     map.fitBounds (bounds);
 
