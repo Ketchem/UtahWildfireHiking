@@ -75,21 +75,21 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         // create new trail review
 
         //review_id = 0;
-        String trailName = request.getParameter("trail_name");
+        String trail_name = request.getParameter("trail_name");
 
         String trail_id = request.getParameter("trail_id");
         String longitude = request.getParameter("longitude");
         String latitude = request.getParameter("latitude");
 
         String comments = request.getParameter("comments");
-        String date_added = request.getParameter("date_added"); //Date?
-        String active = request.getParameter("active"); //Boolean?
+        String date_added = request.getParameter("date_added");
+        String active = request.getParameter("active");
         String rating = request.getParameter("rating");
         //String user = request.getParameter("user");
 
 
 
-        //if (trailName != null) {trailName = "'" + trailName + "'";}
+        if (trail_name != null) {trail_name = "'" + trail_name + "'";}
         if (trail_id != null) {trail_id = "'" + trail_id + "'";}
         if (comments != null) {comments = "'" + comments + "'";}
         if (date_added != null) {date_added = "'" + date_added + "'";}
@@ -97,12 +97,12 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         if (rating != null) {rating = "'" + rating + "'";}
         if (longitude != null) {longitude = "'" + longitude + "'";}
         if (latitude != null) {latitude = "'" + latitude + "'";}
-       // if (user != null) {user = "'" + user + "'";}
+        // if (user != null) {user = "'" + user + "'";}
 
 
         //sql statement to add to db
-        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude) "//, user) "
-                + "values (" + trail_id + "," + date_added + "," + active  + "," + rating + "," + comments + "," + longitude + "," + latitude + ")";//"," + user + ")";
+        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude, trail_name) "//, user) "
+                + "values (" + trail_id + "," + date_added + "," + active  + "," + rating + "," + comments + "," + longitude + "," + latitude + "," + trail_name + ")";//"," + user + ")";
 
 
         dbutil.modifyDB(sql);
@@ -149,7 +149,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
             m.put("comments", res.getString("comments"));
             m.put("date_added", res.getString("date_added"));
-         
+
             m.put("active", res.getString("active"));
             m.put("rating", res.getString("rating"));
             list.put(m);
