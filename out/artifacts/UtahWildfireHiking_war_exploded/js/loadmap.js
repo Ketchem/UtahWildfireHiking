@@ -1,6 +1,9 @@
-
 var map;
 var infowindow = new google.maps.InfoWindow();
+var place;
+var autocomplete;
+//variable for the marker used to create a new trail
+var newMarker;
 
 function initialization() {
     showAllReports();
@@ -61,7 +64,10 @@ function mapInitialization(reports) {
 
 
     });
-//click and fill lat and long on form
+
+    //on click
+    //  fill lat and long on form
+    //  remove old marker (if exists) and place a new marker
     google.maps.event.addListener(map, "click", function(event) {
         // get lat/lon of click
         var clickLat = event.latLng.lat();
@@ -71,17 +77,30 @@ function mapInitialization(reports) {
         document.getElementById("lat").value = clickLat.toFixed(5);
         document.getElementById("lon").value = clickLon.toFixed(5);
 
-        var marker = new google.maps.Marker({
+        //check for existing marker
+        if (newMarker && newMarker.setMap){
+            newMarker.setMap(null);
+        }
+
+        //places the new marker
+        newMarker = new google.maps.Marker({
             position: new google.maps.LatLng(clickLat, clickLon),
             map: map
         });
 
     });
 
+    //TODO: Create a function to remove a point if desired
+
 
     map.data.loadGeoJson('SLCOTrailheads.json');
     map.data.loadGeoJson('SLCoTrails.json');
 
+    map.data.setStyle({
+        strokeColor: 'red',
+        icon: 'img/damage.png',
+        scaledSize: (15, 15)
+    });
 
     map.fitBounds (bounds);
 
@@ -104,15 +123,18 @@ function onPlaceChanged() {
         map.setCenter(place.geometry.location);
         map.setZoom(17);  // Why 17? Because it looks good.
     }
+
+    // Removed the place a marker at the location when zoomed to avoid confusion1
+    /*
     var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map
     });
+
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
+    */
 }
-
-
 
 
 //Execute our 'initialization' function once the page has loaded.

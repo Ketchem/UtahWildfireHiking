@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Google -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jNc8kvRnUAug82NK2hcJ0UmxM5D08t8&libraries=geometry,places,visualization"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB96h7i2VBoDzWPsDIF2QvvakaN6qxWFEE&libraries=geometry,places,visualization"></script>
 
 </head>
 <body>
@@ -110,8 +110,6 @@
                         </button>
                     </form>
                 </div>
-
-
 
                 <!-- Query Wildfire Panel -->
                 <div class="tab-pane" id="query_wildfire">
