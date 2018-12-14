@@ -90,7 +90,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
 
         if (trail_name != null) {trail_name = "'" + trail_name + "'";}
-        if (trail_id != null) {trail_id = "'" + trail_id + "'";}
+        //if (trail_id != null) {trail_id = "'" + trail_id + "'";}
         if (comments != null) {comments = "'" + comments + "'";}
         if (date_added != null) {date_added = "'" + date_added + "'";}
         if (active != null) {active = "'" + active + "'";}
@@ -101,8 +101,8 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
 
         //sql statement to add to db
-        sql = "insert into trail_review ( trail_id, date_added, active, rating, comments, longitude, latitude, trail_name) "//, user) "
-                + "values (" + trail_id + "," + date_added + "," + active  + "," + rating + "," + comments + "," + longitude + "," + latitude + "," + trail_name + ")";//"," + user + ")";
+        sql = "insert into trail_review (date_added, active, rating, comments, longitude, latitude, trail_name) "//, user) "
+                + "values (" + date_added + "," + active  + "," + rating + "," + comments + "," + longitude + "," + latitude + "," + trail_name + ")";//"," + user + ")";
 
 
         dbutil.modifyDB(sql);
@@ -133,7 +133,44 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
             response) throws JSONException, SQLException, IOException {
         JSONArray list = new JSONArray();
         DBUtility dbutil = new DBUtility();
-        String sql = "select * from trail_review";
+
+        String rating = request.getParameter("rating");
+        String keyword = request.getParameter("keyword");
+        String active = request.getParameter("active");
+        String difficulty = request.getParameter("difficulty");
+        String sql = "";
+
+        int count = 0;
+        String whererating;
+        String wherekeyword;
+        String whereactive;
+        String wheredifficulty;
+
+
+        if (rating != null){
+            whererating = "cast(rating as int) >= " + rating.substring(0,1);
+            count += 1;
+        }
+
+        if (keyword != null){
+            wherekeyword = "lower(comments) like '%" + keyword.toLowerCase() + "%'";
+            count += 1;
+        }
+
+        if (active == "n"){
+            whereactive = "active = false";
+        }
+        else {
+            whereactive = "active = true";
+        }
+
+        if (rating == null && keyword == null && active == null && difficulty == null){
+            sql = "select * from trail_review";
+        }
+        else if (count == 0) {
+            String where = "Where " + whereactive;
+        }
+
 
 
         ResultSet res = dbutil.queryDB(sql);

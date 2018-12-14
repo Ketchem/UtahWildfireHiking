@@ -19,7 +19,8 @@ form {
 }
 
 #map-canvas {
-    height:100%;
+    /*Changed to 94% to remove the use ctrl + zoom to scroll on the map*/
+    height:94%;
     position: absolute;
     right:0;
 }

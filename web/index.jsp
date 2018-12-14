@@ -42,7 +42,7 @@
                             <input id="autocomplete" placeholder="Location"></div>
                         <div><label>Name:&nbsp</label><input placeholder="Trail Name" name="trail_name"></div>
                         <div><label>Date Hiked:&nbsp</label><input placeholder="Date mm/dd/yyyy" name="date_added"></div>
-                        <div><label>Trail ID(Required):</label><input placeholder="Trail ID" name="trail_id"></div>
+                        <!--<div><label>Trail ID(Required):</label><input placeholder="Trail ID" name="trail_id"></div>-->
                         <div>
                             <label><input type="radio" name="active" value="t">&nbspActive</label>
                             <label><input type="radio" name="active" value="f">&nbspInactive</label>
@@ -73,32 +73,27 @@
                 <div class="tab-pane" id="query_trail">
                     <form id="query_trail_form">
                         <h2>Query Trail</h2>
-                        <div><label>Trail Use Type:</label>
-                            <select onchange="onSelectReportType(this)" name="designated_use">
-                            <option value="">Choose the report type</option>
-                            <option value="BIKE">Bike</option>
-                            <option value="HIKE">Hike</option>
-                            <option value="HORSE">Horse</option>
-                            <option value="MOTORCYCLE">Motorcycle</option>
-                            <option value="OHV">OHV</option>
+                        <div><label>Trail Rating:</label>
+                            <select onchange="onSelectReportType(this)" name="rating">
+                                <option value="">Choose Trail Rating</option>
+                                <option value="1+">1+</option>
+                                <option value="2+">2+</option>
+                                <option value="3+">3+</option>
+                                <option value="4+">4+</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
-                        <div class="additional_msg_div" style="visibility: hidden"><label class="additional_msg"></label>
+                        <!--<div class="additional_msg_div" style="visibility: hidden"><label class="additional_msg"></label>
                             <select class="additional_msg_select" name="BIKE"></select>
+                        </div>-->
+                        <div><label>Comment Key Word: </label>
+                            <input type="text" name="keyword">
                         </div>
-                        <div><label>Bike Difficulty:</label>
-                            <select name="bike_difficulty">
-                                <option value="">Choose the bike difficulty (optional)</option>
-                                <option value="EASIER">Easy</option>
-                                <option value="MODERATE">Moderate</option>
-                                <option value="DIFFICULT">Difficult</option>
-                            </select>
-                        </div>
-                        <div class="additional_msg_div" style="visibility: hidden"><label class="additional_msg"></label>
+                        <!--<div class="additional_msg_div" style="visibility: hidden"><label class="additional_msg"></label>
                             <select class="additional_msg_select" name="HIKE"></select>
-                        </div>
+                        </div>-->
                         <div><label>Hike Difficulty:</label>
-                            <select name="hike_difficulty">
+                            <select name="difficulty">
                                 <option value="">Choose the hike difficulty (optional)</option>
                                 <option value="EASIER">Easy</option>
                                 <option value="MODERATE">Moderate</option>

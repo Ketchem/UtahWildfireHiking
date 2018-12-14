@@ -44,9 +44,11 @@ function mapInitialization(reports) {
 
         // Create the infoWindow content
         var contentStr = '<h4>Trailhead Information</h4><hr>';
-        contentStr += '<p><b>' + 'Trail name' + ':</b>&nbsp' + e['name'] + '</p>';
-        contentStr += '<p><b>' + 'Trailhead ID' + ':</b>&nbsp' + e['trailhead_ID'] +
-            '</p>';
+        contentStr += '<p><b>' + 'Trailhead ID' + ':</b>&nbsp' + e['trail_id'] + '</p>';
+        contentStr += '<p><b>' + 'Trail Name' + ':</b>&nbsp' + e['trail_name'] + '</p>';
+        contentStr += '<p><b>' + 'Trail Rating' + ':</b>&nbsp' + e['rating'] + '</p>';
+        contentStr += '<p><b>' + 'Review Comments' + ':</b>&nbsp' + e['comments'] + '</p>';
+
 
         // Create the marker
         var marker = new google.maps.Marker({ // Set the marker
@@ -124,7 +126,7 @@ function onPlaceChanged() {
         map.setZoom(17);  // Why 17? Because it looks good.
     }
 
-    // Removed the place a marker at the location when zoomed to avoid confusion1
+    // Removed the place a marker at the location when zoomed to avoid confusion
     /*
     var marker = new google.maps.Marker({
         position: place.geometry.location,
