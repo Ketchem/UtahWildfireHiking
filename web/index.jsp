@@ -14,21 +14,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+
     <!-- Google -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB96h7i2VBoDzWPsDIF2QvvakaN6qxWFEE&libraries=geometry,places,visualization"></script>
 
 </head>
-<body>
+<body style="background-color: darkolivegreen">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <a class="navbar-brand">Utah Wildfire Hiking Trail Portal</a>
+    <a class="navbar-brand">Salt Lake City, Utah Hiking Trail Portal</a>
 </nav>
 
 <div class="container-fluid">
     <div class="row">
         <div class="sidebar col-xs-4">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#add_review" data-toggle="tab">Add Review</a></li>
-                <li><a href="#query_trail" data-toggle="tab">Query Trail Reviews</a></li>
+                <li class="active"><a style="color:black" href="#add_review" data-toggle="tab">Add Review</a></li>
+                <li><a style="color:black" href="#query_trail" data-toggle="tab">Query Trail Reviews</a></li>
                 <!--<li><a href="#query_wildfire" data-toggle="tab">Query Wildfires</a></li>-->
             </ul>
 
