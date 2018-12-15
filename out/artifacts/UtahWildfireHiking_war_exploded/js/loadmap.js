@@ -6,12 +6,13 @@ var autocomplete;
 var newMarker;
 
 function initialization() {
-    showAllReports();
-    initAutocomplete();
-    onPlaceChanged();
+    //showAllReports();
+    //initAutocomplete();
+    //onPlaceChanged();
+    initMap();
 }
 
-function showAllReports() {
+function initMap() {
     $.ajax({
         url: 'HttpServlet',
         type: 'POST',
@@ -25,9 +26,27 @@ function showAllReports() {
     });
 }
 
+/**
+function showAllReports() {
+    $.ajax({
+        url: 'HttpServlet',
+        type: 'POST',
+        data: { "tab_id": "1"},
+        success: function(reports) {
+            mapInitialization(reports);
+        },
+        error: function(xhr, status, error) {
+            alert("An AJAX error occured: " + status + "\nError: " + error);
+        }
+    });
+}
+*/
+
 function mapInitialization(reports) {
     var mapOptions = {
         mapTypeId : google.maps.MapTypeId.ROADMAP, // Set the type of Map
+        center: {lat:40.66558, lng:-111.79762},
+        zoom: 11
     };
 
     // Render the map within the empty div
@@ -35,12 +54,14 @@ function mapInitialization(reports) {
 
     var bounds = new google.maps.LatLngBounds ();
 
+
     $.each(reports, function(i, e) {
         var long = Number(e['longitude']);
         var lat = Number(e['latitude']);
         var latlng = new google.maps.LatLng(lat, long);
 
         bounds.extend(latlng);
+
 
         // Create the infoWindow content
         var contentStr = '<h4>Trailhead Information</h4><hr>';
@@ -104,10 +125,11 @@ function mapInitialization(reports) {
         scaledSize: (15, 15)
     });
 
-    map.fitBounds (bounds);
+    //map.fitBounds (bounds);
 
 }
 
+/**
 function initAutocomplete() {
     // Create the autocomplete object
     autocomplete = new google.maps.places.Autocomplete(document
@@ -116,6 +138,7 @@ function initAutocomplete() {
     // When the user selects an address from the dropdown, show the place selected
     autocomplete.addListener('place_changed', onPlaceChanged);
 }
+
 function onPlaceChanged() {
     place = autocomplete.getPlace();
     // If the place has a geometry, then present it on a map.
@@ -127,7 +150,7 @@ function onPlaceChanged() {
     }
 
     // Removed the place a marker at the location when zoomed to avoid confusion
-    /*
+
     var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map
@@ -135,9 +158,8 @@ function onPlaceChanged() {
 
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
-    */
-}
 
+} */
 
 //Execute our 'initialization' function once the page has loaded.
 google.maps.event.addDomListener(window, 'load', initialization);

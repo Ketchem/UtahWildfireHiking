@@ -136,44 +136,61 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
         String rating = request.getParameter("rating");
         String keyword = request.getParameter("keyword");
-        String active = request.getParameter("active");
-        String difficulty = request.getParameter("difficulty");
-        String sql = "";
+        String trailName = request.getParameter("trail_name");
+        String sql = "Select * from Trail_Review ";
 
-        int count = 0;
-        String whererating;
-        String wherekeyword;
-        String whereactive;
-        String wheredifficulty;
+        //count keeps track of the query
+        //  0 = rating only
+        //  1 = keyword only,
+        //  2 = trailname only,
+        //  3 = keyword and trailname
+        //  -1 = all null
+        int count = -1;
 
+        String whererating = "";
+        String wherekeyword = "";
+        String wheretrailname = "";
 
         if (rating != null){
             whererating = "cast(rating as int) >= " + rating.substring(0,1);
-            count += 1;
+            count = 0;
+        }
+        else {
+            whererating = "cast(rating as int) >= 0";
         }
 
         if (keyword != null){
             wherekeyword = "lower(comments) like '%" + keyword.toLowerCase() + "%'";
-            count += 1;
+            count = 1;
         }
 
-        if (active == "n"){
-            whereactive = "active = false";
-        }
-        else {
-            whereactive = "active = true";
-        }
-
-        if (rating == null && keyword == null && active == null && difficulty == null){
-            sql = "select * from trail_review";
-        }
-        else if (count == 0) {
-            String where = "Where " + whereactive;
+        if (trailName != null){
+            wheretrailname = "lower(name) like '%" + keyword.toLowerCase() + "%'";
+            if (count == 1) {
+                count = 3;
+            }
+            else count = 2;
         }
 
+        String where = "";
 
+        if (count == -1){
+            where = "";
+        }
+        else if (count == 1) {
+            where = "Where " + whererating + " and " + wherekeyword;
+        }
+        else if (count == 2) {
+            where = "Where " + whererating + " and " + wheretrailname;
+        }
+        else if (count == 3) {
+            where = "Where " + whererating + " and " + wherekeyword + " and " + wheretrailname;
+        }
+
+        sql += where;
 
         ResultSet res = dbutil.queryDB(sql);
+
         while (res.next()) {
             // this is where we list the data we want to get back
             HashMap<String, String> m = new HashMap<String,String>();
