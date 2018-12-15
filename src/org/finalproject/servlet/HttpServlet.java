@@ -134,9 +134,9 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         JSONArray list = new JSONArray();
         DBUtility dbutil = new DBUtility();
 
-        String rating = request.getParameter("rating");
-        String keyword = request.getParameter("keyword");
-        String trailName = request.getParameter("trail_name");
+        String rating = request.getParameter("q_rating");
+        String keyword = request.getParameter("q_keyword");
+        String trailName = request.getParameter("q_trail_name");
         String sql = "Select * from Trail_Review ";
 
         //count keeps track of the query
@@ -165,7 +165,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         }
 
         if (trailName != null){
-            wheretrailname = "lower(name) like '%" + keyword.toLowerCase() + "%'";
+            wheretrailname = "lower(trail_name) like '%" + trailName.toLowerCase() + "%'";
             if (count == 1) {
                 count = 3;
             }
@@ -176,6 +176,9 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
 
         if (count == -1){
             where = "";
+        }
+        else if (count == 0){
+            where = "Where " + whererating;
         }
         else if (count == 1) {
             where = "Where " + whererating + " and " + wherekeyword;
@@ -188,6 +191,8 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
         }
 
         sql += where;
+
+        System.out.println(sql);
 
         ResultSet res = dbutil.queryDB(sql);
 

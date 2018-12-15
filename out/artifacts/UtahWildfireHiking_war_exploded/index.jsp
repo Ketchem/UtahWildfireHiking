@@ -28,8 +28,8 @@
         <div class="sidebar col-xs-4">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#add_review" data-toggle="tab">Add Review</a></li>
-                <li><a href="#query_trail" data-toggle="tab">Query Trails</a></li>
-                <li><a href="#query_wildfire" data-toggle="tab">Query Wildfires</a></li>
+                <li><a href="#query_trail" data-toggle="tab">Query Trail Reviews</a></li>
+                <!--<li><a href="#query_wildfire" data-toggle="tab">Query Wildfires</a></li>-->
             </ul>
 
             <div class="tab-content">
@@ -67,14 +67,12 @@
                 </div>
 
 
-
-
                 <!-- Query Trail Panel -->
                 <div class="tab-pane" id="query_trail">
-                    <form id="query_trail_form">
+                    <form id="query_review_form">
                         <h2>Query Trail</h2>
                         <div><label>Trail Rating:</label>
-                            <select onchange="onSelectReportType(this)" name="rating">
+                            <select name="q_rating">
                                 <option value="">Choose Trail Rating</option>
                                 <option value="1+">1+</option>
                                 <option value="2+">2+</option>
@@ -87,13 +85,13 @@
                             <select class="additional_msg_select" name="BIKE"></select>
                         </div>-->
                         <div><label>Comment Key Word: </label>
-                            <input type="text" name="keyword">
+                            <input type="text" name="q_keyword">
                         </div>
                         <!--<div class="additional_msg_div" style="visibility: hidden"><label class="additional_msg"></label>
                             <select class="additional_msg_select" name="HIKE"></select>
                         </div>-->
                         <div><label>Trail Name</label>
-                            <input type="text" name="trail_name">
+                            <input type="text" name="q_trail_name">
                         </div>
                         <button type="submit" class="btn btn-default" id="query_submit_btn">
                             <span class="glyphicon glyphicon-star"></span> Submit the query
@@ -102,11 +100,12 @@
                 </div>
 
                 <!-- Query Wildfire Panel -->
+                <!--
                 <div class="tab-pane" id="query_wildfire">
                     <form id="query_wildfire_form">
                         <h2>Query Wildfire</h2>
                     </form>
-                </div>
+                </div> -->
             </div>
 
         </div>

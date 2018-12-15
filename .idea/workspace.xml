@@ -7,9 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e137e57b-2ef8-4424-b8d8-144c09991513" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/UtahWildfireHiking_war_exploded/WEB-INF/classes/org/finalproject/servlet/HttpServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UtahWildfireHiking_war_exploded/WEB-INF/classes/org/finalproject/servlet/HttpServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UtahWildfireHiking/org/finalproject/servlet/HttpServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UtahWildfireHiking/org/finalproject/servlet/HttpServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/finalproject/servlet/HttpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/finalproject/servlet/HttpServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/loadmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/loadmap.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,27 +115,28 @@
     <session id="-1020637270">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="125" />
-          <entry key="java" value="1755" />
+          <entry key="java" value="2043" />
           <entry key="js" value="1121" />
-          <entry key="jsp" value="563" />
+          <entry key="jsp" value="617" />
           <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="125" />
-          <entry key="JAVA" value="1755" />
-          <entry key="JSP" value="563" />
+          <entry key="JAVA" value="2043" />
+          <entry key="JSP" value="617" />
           <entry key="JavaScript" value="1121" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
@@ -205,11 +208,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="88" column="62" lean-forward="true" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+            <state relative-caret-position="237">
+              <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -217,8 +220,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/loadform.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="493">
+              <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -227,7 +230,7 @@
         <entry file="file://$PROJECT_DIR$/web/js/loadmap.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="748">
-              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -236,7 +239,7 @@
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -244,7 +247,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/finalproject/servlet/DBUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
+            <state relative-caret-position="17">
               <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -253,11 +256,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/finalproject/servlet/HttpServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="192" selection-start-line="192" selection-end-line="192" />
+            <state relative-caret-position="318">
+              <caret line="250" column="2" lean-forward="true" selection-start-line="250" selection-start-column="2" selection-end-line="250" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -284,6 +287,8 @@
       <find>trail_name</find>
       <find>initauto</find>
       <find>TRAIL_NAME</find>
+      <find>query_trail</find>
+      <find>Query Trail</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -298,8 +303,8 @@
         <option value="$PROJECT_DIR$/src/org/finalproject/servlet/DBUtility.java" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/web/js/loadmap.js" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/org/finalproject/servlet/HttpServlet.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -333,9 +338,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -384,13 +388,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544846974593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544883724451" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Lab3_old" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -552,7 +557,8 @@
       <workItem from="1544450392430" duration="14693000" />
       <workItem from="1544465496183" duration="57000" />
       <workItem from="1544663359258" duration="6803000" />
-      <workItem from="1544811865098" duration="16411000" />
+      <workItem from="1544811865098" duration="16467000" />
+      <workItem from="1544881617988" duration="2105000" />
     </task>
     <servers />
   </component>
@@ -577,7 +583,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62036000" />
+    <option name="totallyTimeSpent" value="64197000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,7 +598,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.81578946" visible="true" weight="0.17963752" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.81578946" visible="true" weight="0.18123667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -676,37 +682,23 @@
     <entry file="das://d2e504bd-45e7-4fcb-bc25-081a96f80d4c/database/utahtrl/schema/public/table/trails" />
     <entry file="file://$PROJECT_DIR$/web/SmallTrails.geojson" />
     <entry file="das://d2e504bd-45e7-4fcb-bc25-081a96f80d4c/database/utahtrl/schema/public/table/trail_review" />
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/loadmap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
-          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/loadform.js">
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="88" column="62" lean-forward="true" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+        <state relative-caret-position="408">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/finalproject/servlet/DBUtility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
+        <state relative-caret-position="17">
           <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -714,13 +706,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/loadform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/finalproject/servlet/HttpServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        <state relative-caret-position="318">
+          <caret line="250" column="2" lean-forward="true" selection-start-line="250" selection-start-column="2" selection-end-line="250" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
         </state>
       </provider>
     </entry>
