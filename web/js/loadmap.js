@@ -76,11 +76,16 @@ function mapInitialization(reports) {
 
         bounds.extend(latlng);
 
+        var active = {
+            "t": "Yes",
+            "f": "No"
+        };
 
         // Create the infoWindow content
         var contentStr = '<h4> Trail Review Information</h4><hr>';
-       // contentStr += '<p><b>' + 'Trailhead ID' + ':</b>&nbsp' + e['trail_id'] + '</p>';
         contentStr += '<p><b>' + 'Trail Name' + ':</b>&nbsp' + e['trail_name'] + '</p>';
+        contentStr += '<p><b>' + 'Active' + ':</b>&nbsp' + active[e['active']] + '</p>';
+        contentStr += '<p><b>' + 'Date Hiked' + ':</b>&nbsp' + e['date_added'] + '</p>';
         contentStr += '<p><b>' + 'Trail Rating' + ':</b>&nbsp' + e['rating'] + '</p>';
         contentStr += '<p><b>' + 'Review Comments' + ':</b>&nbsp' + e['comments'] + '</p>';
 
