@@ -5,6 +5,20 @@ var autocomplete;
 //variable for the marker used to create a new trail
 var newMarker;
 
+var reviewIcon = {
+    url: "img/review.png", // url
+    scaledSize: new google.maps.Size(32, 32), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
+
+var trailIcon = {
+    url: "img/trailHead.png", // url
+    scaledSize: new google.maps.Size(32, 32), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
+
 function initialization() {
     //showAllReports();
     //initAutocomplete();
@@ -27,7 +41,7 @@ function initMap() {
 }
 
 /**
-function showAllReports() {
+ function showAllReports() {
     $.ajax({
         url: 'HttpServlet',
         type: 'POST',
@@ -40,7 +54,7 @@ function showAllReports() {
         }
     });
 }
-*/
+ */
 
 function mapInitialization(reports) {
     var mapOptions = {
@@ -54,7 +68,7 @@ function mapInitialization(reports) {
 
     var bounds = new google.maps.LatLngBounds ();
 
-
+    console.log(reports);
     $.each(reports, function(i, e) {
         var long = Number(e['longitude']);
         var lat = Number(e['latitude']);
@@ -62,11 +76,16 @@ function mapInitialization(reports) {
 
         bounds.extend(latlng);
 
+        var active = {
+            "t": "Yes",
+            "f": "No"
+        };
 
         // Create the infoWindow content
-        var contentStr = '<h4>Trailhead Information</h4><hr>';
-        contentStr += '<p><b>' + 'Trailhead ID' + ':</b>&nbsp' + e['trail_id'] + '</p>';
+        var contentStr = '<h4> Trail Review Information</h4><hr>';
         contentStr += '<p><b>' + 'Trail Name' + ':</b>&nbsp' + e['trail_name'] + '</p>';
+        contentStr += '<p><b>' + 'Active' + ':</b>&nbsp' + active[e['active']] + '</p>';
+        contentStr += '<p><b>' + 'Date Hiked' + ':</b>&nbsp' + e['date_added'] + '</p>';
         contentStr += '<p><b>' + 'Trail Rating' + ':</b>&nbsp' + e['rating'] + '</p>';
         contentStr += '<p><b>' + 'Review Comments' + ':</b>&nbsp' + e['comments'] + '</p>';
 
@@ -75,6 +94,7 @@ function mapInitialization(reports) {
         var marker = new google.maps.Marker({ // Set the marker
             position : latlng, // Position marker to coordinates
             customInfo: contentStr,
+            icon: reviewIcon,
             map : map, // assign the market to our map variable
         });
 
@@ -108,6 +128,7 @@ function mapInitialization(reports) {
         //places the new marker
         newMarker = new google.maps.Marker({
             position: new google.maps.LatLng(clickLat, clickLon),
+            icon: reviewIcon,
             map: map
         });
 
@@ -115,14 +136,21 @@ function mapInitialization(reports) {
 
     //TODO: Create a function to remove a point if desired
 
-
     map.data.loadGeoJson('SLCOTrailheads.json');
     map.data.loadGeoJson('SLCoTrails.json');
 
     map.data.setStyle({
-        strokeColor: 'red',
-        icon: 'img/damage.png',
-        scaledSize: (15, 15)
+        strokeColor: 'brown',
+        icon: trailIcon
+    });
+
+    map.data.addListener('click', function(event) {
+        var feat = event.feature;
+        var html = "<b>Trail: "+feat.getProperty('Name')+"</b>";
+        infowindow.setContent(html);
+        infowindow.setPosition(event.latLng);
+        infowindow.setOptions({pixelOffset: new google.maps.Size(0,-34)});
+        infowindow.open(map);
     });
 
     //map.fitBounds (bounds);
@@ -130,16 +158,14 @@ function mapInitialization(reports) {
 }
 
 /**
-function initAutocomplete() {
+ function initAutocomplete() {
     // Create the autocomplete object
     autocomplete = new google.maps.places.Autocomplete(document
         .getElementById('autocomplete'));
-
     // When the user selects an address from the dropdown, show the place selected
     autocomplete.addListener('place_changed', onPlaceChanged);
 }
-
-function onPlaceChanged() {
+ function onPlaceChanged() {
     place = autocomplete.getPlace();
     // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
@@ -148,17 +174,13 @@ function onPlaceChanged() {
         map.setCenter(place.geometry.location);
         map.setZoom(17);  // Why 17? Because it looks good.
     }
-
     // Removed the place a marker at the location when zoomed to avoid confusion
-
     var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map
     });
-
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
-
 } */
 
 //Execute our 'initialization' function once the page has loaded.

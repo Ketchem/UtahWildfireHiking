@@ -201,7 +201,7 @@ public class HttpServlet extends javax.servlet.http.HttpServlet {
             HashMap<String, String> m = new HashMap<String,String>();
             m.put("trail_id", res.getString("trail_id"));
 
-            //m.put("trailName", res.getString("trailName"));
+            m.put("trail_name", res.getString("trail_name"));
 
             m.put("longitude", res.getString("longitude"));
             m.put("latitude", res.getString("latitude"));
